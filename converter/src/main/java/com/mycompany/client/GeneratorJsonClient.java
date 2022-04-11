@@ -15,13 +15,13 @@ import java.util.Objects;
 public class GeneratorJsonClient {
 
     private final RestTemplate restTemplate;
+    private final static String URL_JSON = "http://generate-json:8080";
 
-    public List<GeneratedDate> getJsonList(int size){
-      ResponseEntity<GeneratedDate[]> responseEntity = restTemplate.getForEntity(
-                url + "/generate/json/{size}",
-                size,
-                GeneratedDate[].class);
-
-      return Arrays.asList(Objects.requireNonNull(responseEntity.getBody()));
+    public List<GeneratedDate> getJsonList(int size) {
+        ResponseEntity<GeneratedDate[]> responseEntity = restTemplate.getForEntity(
+                URL_JSON + "/generate/json/{size}",
+                GeneratedDate[].class,
+                size);
+        return Arrays.asList(Objects.requireNonNull(responseEntity.getBody()));
     }
 }
