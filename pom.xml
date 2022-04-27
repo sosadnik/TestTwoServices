@@ -15,9 +15,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-      <module>generate-json</module>
+      <module>generateJson</module>
       <module>converter</module>
-
     </modules>
 
     <name>test</name>
@@ -32,7 +31,7 @@
     <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
     <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
     <spring-cloud-starter-contract-verifier.version>3.1.0</spring-cloud-starter-contract-verifier.version>
-    <spring-boot-starter-parent.version>2.6.3</spring-boot-starter-parent.version>
+    <spring-boot-starter-parent.version>2.5.7</spring-boot-starter-parent.version>
   </properties>
 
   <dependencyManagement>

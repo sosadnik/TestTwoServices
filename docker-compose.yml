@@ -8,8 +8,8 @@ services:
       - bridge-network
 
   generate-json:
-    build: ./generate-json
-    container_name: generate-json
+    build: ./generateJson
+    container_name: generateJson
     depends_on:
       - converter
     ports:
