@@ -1,14 +1,14 @@
-package com.mycompany.converter.model;
+package com.mycompany.generateJson.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
 
 @Getter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-public class GeneratedDate {
+public class GeneratedData {
 
     private String _type;
     private Long _id;

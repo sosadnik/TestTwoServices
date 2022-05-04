@@ -1,13 +1,12 @@
 package com.mycompany.converter;
 
-import com.mycompany.converter.model.GeneratedDate;
+import com.mycompany.converter.model.GeneratedData;
 import com.mycompany.converter.model.GeoPosition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.cloud.contract.stubrunner.junit.StubRunnerExtension;
 import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -35,14 +34,14 @@ public class GenerateJsonClientTest {
 
     @Test
     void getGenerateJson_shouldReturnJsonList() {
-        ArrayList<GeneratedDate> expected = new ArrayList<>();
-        expected.add(new GeneratedDate(
+        ArrayList<GeneratedData> expected = new ArrayList<>();
+        expected.add(new GeneratedData(
                 "type", 1L, "key", "name",
                 "fullName", "airport_code",
                 "type", "country", new GeoPosition(2, 3),
                 1L, true,
                 "code", true, 1));
-        expected.add(new GeneratedDate(
+        expected.add(new GeneratedData(
                 "type", 2L, "key", "name",
                 "fullName", "airport_code",
                 "type", "country", new GeoPosition(3, 3),
@@ -50,10 +49,10 @@ public class GenerateJsonClientTest {
                 "code", true, 1));
 
 
-        ResponseEntity<GeneratedDate[]> responseEntity = restTemplate.getForEntity(
+        ResponseEntity<GeneratedData[]> responseEntity = restTemplate.getForEntity(
                 "http://localhost:8101/generate/json/2",
-                GeneratedDate[].class);
-        List<GeneratedDate> actual = Arrays.asList(Objects.requireNonNull(responseEntity.getBody()));
+                GeneratedData[].class);
+        List<GeneratedData> actual = Arrays.asList(Objects.requireNonNull(responseEntity.getBody()));
 
         assertEquals(expected, actual);
     }

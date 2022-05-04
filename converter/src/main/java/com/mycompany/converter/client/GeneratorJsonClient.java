@@ -1,6 +1,6 @@
 package com.mycompany.converter.client;
 
-import com.mycompany.converter.model.GeneratedDate;
+import com.mycompany.converter.model.GeneratedData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -15,12 +15,12 @@ import java.util.Objects;
 public class GeneratorJsonClient {
 
     private final RestTemplate restTemplate;
-    private final static String URL_JSON = "http://generateJson:8080";
+    private final static String URL_JSON = "http://localhost:8080";
 
-    public List<GeneratedDate> getJsonList(int size) {
-        ResponseEntity<GeneratedDate[]> responseEntity = restTemplate.getForEntity(
+    public List<GeneratedData> getJsonList(int size) {
+        ResponseEntity<GeneratedData[]> responseEntity = restTemplate.getForEntity(
                 URL_JSON + "/generate/json/{size}",
-                GeneratedDate[].class,
+                GeneratedData[].class,
                 size);
         return Arrays.asList(Objects.requireNonNull(responseEntity.getBody()));
     }

@@ -1,7 +1,7 @@
 package com.mycompany.generateJson.service;
 
 import com.mycompany.generateJson.model.GeoPosition;
-import com.mycompany.generateJson.model.GeneratedDate;
+import com.mycompany.generateJson.model.GeneratedData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +14,8 @@ public class DataService {
 
     private final RandomValueGeneratorService generatorService;
 
-    public List<GeneratedDate> getList(long size) {
-        List<GeneratedDate> list = new ArrayList<>();
+    public List<GeneratedData> getList(long size) {
+        List<GeneratedData> list = new ArrayList<>();
 
         while (list.size() < size) {
             list.add(buildGeneratorDate());
@@ -23,8 +23,8 @@ public class DataService {
         return list;
     }
 
-    private GeneratedDate buildGeneratorDate() {
-        return GeneratedDate.builder()
+    private GeneratedData buildGeneratorDate() {
+        return GeneratedData.builder()
                 ._type(generatorService.randomString())
                 ._id(generatorService.randomLong())
                 .key(generatorService.randomString())
