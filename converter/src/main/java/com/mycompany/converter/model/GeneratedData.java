@@ -78,7 +78,7 @@ public class GeneratedData {
             case "distance":
                 return String.valueOf(distance);
             default:
-                return "";
+                return null;
         }
     }
 }

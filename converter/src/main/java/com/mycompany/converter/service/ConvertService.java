@@ -25,10 +25,16 @@ public class ConvertService {
     public String writeCSV(List<GeneratedData> list, String[] structureCSV) {
         StringBuilder stringBuilder = new StringBuilder();
         for (GeneratedData data : list) {
+            boolean rowAdded = false;
             for (String s : structureCSV) {
-                stringBuilder.append(data.toString(s)).append(",");
+                if (data.toString(s) != null) {
+                    stringBuilder.append(data.toString(s)).append(",");
+                    rowAdded = true;
+                }
             }
-            stringBuilder.append("\n");
+            if (rowAdded) {
+                stringBuilder.append("\n");
+            }
         }
         return stringBuilder.toString();
     }
